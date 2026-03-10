@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Question 4</title>
+    <script>
+      let a = new Array(45, 78, 2, 234, 777, 8554);
+      let sum = 0,
+        lar = a[0],
+        small = a[0];
+      for (let i = 0; i < 6; i++) {
+        sum = sum + a[0];
+        if (a[i] > lar) {
+          lar = a[i];
+        }
+        if (a[i] < small) {
+          small = a[i];
+        }
+      }
+      let avg = sum / 6;
+      console.log(
+        "Sum:" +
+          sum +
+          " Average:" +
+          avg +
+          " Largest:" +
+          lar +
+          " Smallest:" +
+          small 
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
