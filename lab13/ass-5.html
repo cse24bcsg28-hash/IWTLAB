@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Question 5</title>
+    <script>
+      let a = new Array(1,2,3,4,5,6,76);
+      let lar = a[0];
+      let sec_lar = a[0];
+
+      for (let i = 0; i < 9; i++) {
+        if (a[i] >= lar) {
+          sec_lar = lar;
+          lar = a[i];
+        } else if (a[i] >= sec_lar) {
+          sec_lar = a[i];
+        }
+      }
+      console.log("Second Largest: " + sec_lar);
+    </script>
+  </head>
+  <body></body>
+</html>

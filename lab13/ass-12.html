@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Question 12</title>
+    <script>
+      function generateFibonacci(n) {
+        let x = [0, 1];
+        let count = 0;
+        let res = new Array();
+        while (n > 0) {
+          res.push(x[count]);
+          x[count] = x[count % 2] + x[(count + 1) % 2];
+          count = (count + 1) % 2;
+          n--;
+        }
+        return res;
+      }
+      document.write(generateFibonacci(12));
+    </script>
+  </head>
+  <body></body>
+</html>

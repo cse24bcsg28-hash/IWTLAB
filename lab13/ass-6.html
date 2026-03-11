@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Question 6</title>
+    <script>
+      let arr = new Array(34, 25, 67, 43, 22, 7885, 345, 25, 25, 34);
+      let arr1 = new Array();
+      var x = false;
+      for (let i = 0; i < arr.length; i++) {
+        x = false;
+        for (let j = 0; j < arr1.length; j++) {
+          if (arr[i] == arr1[j]) {
+            x = true;
+          }
+        }
+        if (x == false) {
+          let k = arr1.push(arr[i]);
+        }
+      }
+      document.write(arr1);
+    </script>
+  </head>
+  <body></body>
+</html>

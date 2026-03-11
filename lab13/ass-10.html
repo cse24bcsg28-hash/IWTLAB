@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title></title>
+    <script>
+      function check(num) {
+        let b = new Array(),
+          c = new Array();
+        for (let i = 0; i < num.length; i++) {
+          if (num[i] % 2 == 0) {
+            b.push(num[i]);
+          } else {
+            c.push(num[i]);
+          }
+        }
+        document.write("Even : " + b + "<br>");
+        document.write("Odd : " + c + "<br>");
+      }
+
+      let a = new Array(123, 56, 23, 73, 745, 9956, 32, 11, 156);
+      check(a);
+    </script>
+  </head>
+  <body></body>
+</html>

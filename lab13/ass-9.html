@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Question 9</title>
+    <script>
+      let a = parseInt(prompt("Enter a number: "));
+      let c = a,
+        sum = 0;
+      while (c != 0) {
+        let rem = c % 10;
+        sum = sum +=rem*rem*rem
+        c = Math.floor(c / 10);
+      }
+      if (sum == a) {
+        document.write("Armstrong number");
+      } else {
+        document.write("Not Armstrong number");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
