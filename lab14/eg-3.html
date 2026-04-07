@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>eg-3</title>
+<script>
+function abc()
+{
+let a=document.getElementById("x").value;
+if(a=="red")
+document.bgColor="red";
+else if(a=="green")
+document.bgColor="green";
+else if(a=="blue")
+document.bgColor="blue";
+else if(a=="pink")
+document.bgColor="pink";
+else if(a=="none")
+document.bgColor="white"
+}
+</script>
+</head>
+<body>
+<select id="x" onchange="abc()">
+<option value="none">none</option>
+<option value="red">red</option>
+<option value="green">green</option>
+<option value="blue">blue</option>
+<option value="pink">pink</option>
+</select>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Toggle Paragraph Visibility</title>
+</head>
+<body>
+  <p id="myParagraph">This is a sample paragraph that can be shown or hidden.</p>
+  <button id="toggleBtn" onclick="toggleParagraph()">Hide</button>
+
+  <script>
+    function toggleParagraph() {
+      const para = document.getElementById("myParagraph");
+      const btn = document.getElementById("toggleBtn");
+
+      if (para.style.display === "none") {
+        para.style.display = "block";
+        btn.textContent = "Hide";
+      } else {
+        para.style.display = "none";
+        btn.textContent = "Show";
+      }
+    }
+  </script>
+</body>
+</html>

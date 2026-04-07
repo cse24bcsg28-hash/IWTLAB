@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Simple Counter</title>
+</head>
+<body>
+  <input type="text" id="counter" value="0" readonly>
+  <button onclick="increase()">+</button>
+  <button onclick="decrease()">–</button>
+
+  <script>
+    function increase() {
+      let counter = document.getElementById("counter");
+      counter.value = parseInt(counter.value) + 1;
+    }
+
+    function decrease() {
+      let counter = document.getElementById("counter");
+      let currentValue = parseInt(counter.value);
+      if (currentValue > 0) {
+        counter.value = currentValue - 1;
+      }
+    }
+  </script>
+</body>
+</html>
