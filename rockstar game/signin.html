@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Rockstar Games</title>
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/meta-icons/rockstar/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #000;
+        }
+
+        .signin-box {
+            background: #111;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .signin-logo {
+            width: 60px;
+            margin-bottom: 24px;
+        }
+
+        .signin-box h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: var(--btn-primary);
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 16px;
+            background: var(--btn-primary);
+            color: black;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-full:hover {
+            background: var(--btn-primary-hover);
+        }
+
+        .back-home {
+            display: block;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+            text-decoration: underline;
+        }
+
+        .back-home:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signin-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Rockstar_Games_Logo.svg" alt="Rockstar Games"
+            class="signin-logo">
+        <h1>Sign In with Social Club</h1>
+        <form id="signin-form" onsubmit="event.preventDefault(); handleLogin();">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password">
+            </div>
+            <p id="password-error"
+                style="color: #ff3b30; display: none; margin-top: -10px; margin-bottom: 15px; font-size: 0.9rem; font-weight: 500;">
+                Passwords do not match.</p>
+            <p id="password-req-error"
+                style="color: #ff3b30; display: none; margin-top: -10px; margin-bottom: 15px; font-size: 0.9rem; font-weight: 500;">
+                Password must be at least 8 characters, with one uppercase letter, one lowercase letter, and one special character.</p>
+
+            <button class="btn-full">Sign In</button>
+        </form>
+        <a href="login.html" class="login-link" style="display: block; margin-top: 20px; color: #ccc; text-decoration: none; font-size: 14px;">Already have an account? Log In here.</a>
+        <a href="index.html" class="back-home">Return to Home</a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorElement = document.getElementById('password-error');
+            const reqErrorElement = document.getElementById('password-req-error');
+
+            errorElement.style.display = 'none';
+            if (reqErrorElement) reqErrorElement.style.display = 'none';
+
+            if (email && password && confirmPassword) {
+                const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
+                if (!passRegex.test(password)) {
+                    if (reqErrorElement) reqErrorElement.style.display = 'block';
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    errorElement.style.display = 'block';
+                    return;
+                }
+
+                if (window.rockstarAuth) {
+                    window.rockstarAuth.login(email);
+                }
+                window.location.href = 'index.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+</body>
+
+</html>

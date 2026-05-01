@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | GAME MAVERICKS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Modern 2025 Redesign Scoped Styling */
+        :root {
+            --glass-bg: rgba(18, 18, 20, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent: #f0f0f0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: #050505;
+            background-image: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.95)), url('images/neighborhood-watch.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navbar tweaks to fit new aesthetic seamlessly */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(5, 5, 5, 0.8) !important;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* About Us Hero Section */
+        .page-content {
+            margin-top: 80px; 
+            min-height: calc(100vh - 80px);
+        }
+
+        .about-hero {
+            position: relative;
+            padding: 120px 5% 60px;
+            background: transparent;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255, 177, 193, 0.05) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .about-glass-card {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 80px 60px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+            animation: fadeUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-hero h1 {
+            font-family: 'Chalet', sans-serif;
+            font-size: 84px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .about-hero p {
+            font-size: 22px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        /* High-Fidelity Site Map Section */
+        .sitemap-section {
+            padding: 60px 5% 100px;
+            background: transparent;
+            position: relative;
+            z-index: 1;
+        }
+        .sitemap-section::before {
+            content: '';
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: radial-gradient(circle at 50% 100%, rgba(255, 177, 193, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .sitemap-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .sitemap-header h2 {
+            font-family: 'Chalet', sans-serif;
+            font-size: 64px;
+            color: #fff;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .sitemap-header p {
+            color: #aaa;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .sitemap-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .sitemap-card {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 40px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 250px;
+        }
+        
+        .sitemap-card-bg {
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background-size: cover; background-position: center;
+            opacity: 0.2; transition: opacity 0.5s, transform 0.8s;
+            z-index: -1;
+            filter: grayscale(100%);
+        }
+
+        .sitemap-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(255, 177, 193, 0.4);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 40px rgba(255, 177, 193, 0.1);
+        }
+        
+        .sitemap-card:hover .sitemap-card-bg {
+            opacity: 0.5;
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .sitemap-icon-wrap {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            font-size: 30px;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: 0.4s;
+        }
+        
+        .sitemap-card:hover .sitemap-icon-wrap {
+            background: #ffb1c1;
+            color: #000;
+            border-color: transparent;
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .sitemap-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
+            font-family: 'Chalet', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.4s;
+        }
+        
+        .sitemap-card:hover .sitemap-title {
+            color: #ffb1c1;
+        }
+
+        .sitemap-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .sitemap-links li {
+            margin: 0;
+        }
+
+        .sitemap-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            padding: 12px 20px;
+            border-radius: 12px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sitemap-links a::after {
+            content: ''; position: absolute; top:0; left:-100%; width:100%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s; z-index: 1;
+        }
+        .sitemap-links a:hover::after {
+            left: 100%;
+        }
+
+        .sitemap-links a i {
+            margin-right: 12px;
+            font-size: 16px;
+            color: #888;
+            transition: 0.3s;
+            position: relative; z-index: 2;
+        }
+        
+        .sitemap-links a span {
+            position: relative; z-index: 2;
+        }
+
+        .sitemap-links a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            transform: translateX(10px);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .sitemap-links a:hover i {
+            color: #ffb1c1;
+        }
+
+        /* Large Featured Sitemap element */
+        .sitemap-featured {
+            grid-column: span 2;
+            background: rgba(10, 10, 10, 0.6);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+            min-height: 380px;
+        }
+        .sitemap-featured .sitemap-card-bg {
+            position: relative;
+            width: 50%;
+            height: 100%;
+            opacity: 0.5;
+            filter: grayscale(80%);
+            transition: 0.8s;
+        }
+        .sitemap-featured:hover .sitemap-card-bg {
+            opacity: 0.9; filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        .sitemap-featured-content {
+            padding: 50px;
+            width: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .about-hero h1 { font-size: 64px; }
+            .about-glass-card { padding: 60px 40px; }
+            .sitemap-grid { grid-template-columns: 1fr; }
+            .sitemap-featured { grid-column: span 1; flex-direction: column; align-items: stretch; }
+            .sitemap-featured .sitemap-card-bg { width: 100%; height: 300px; position: absolute; top:0; left:0; opacity: 0.2; }
+            .sitemap-featured-content { width: 100%; padding: 40px; }
+            .sitemap-links { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .about-hero { padding: 140px 5% 80px; }
+            .about-hero h1 { font-size: 48px; }
+            .about-hero p { font-size: 18px; }
+            .sitemap-header h2 { font-size: 40px; }
+            .about-glass-card { padding: 40px 20px; border-radius: 24px; }
+            .sitemap-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <!-- Hamburger for mobile -->
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <a href="index.html" class="logo">
+                     <img src="logo.jpg.jpeg" alt="Rockstar Games">
+                </a>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="games.html">Games <i class="fas fa-chevron-down nav-arrow"></i></a></li>
+                        <li><a href="newswire.html">Newswire</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="store.html">Store <i class="fas fa-external-link-alt nav-ext"></i></a></li>
+                        <li><a href="support.html">Support <i class="fas fa-external-link-alt nav-ext"></i></a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <button class="get-launcher-btn">Get Launcher</button>
+                <div class="nav-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <a href="login.html" class="login-btn-nav" style="color: black; background: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; text-decoration: none; margin-left: 15px; font-size: 14px; transition: 0.3s;">Log In</a>
+                    <a href="signin.html" class="user-btn" style="margin-left: 15px;"><i class="far fa-user-circle"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Search Dropdown Panel -->
+        <div class="search-dropdown">
+            <div class="search-dropdown-content">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search Rockstar Games...">
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active">Games</button>
+                    <button class="filter-btn">Posts</button>
+                    <button class="filter-btn">Videos</button>
+                    <button class="filter-btn">Community <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <button class="close-search-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content Area -->
+    <main class="page-content">
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="about-glass-card">
+                <h1>About Us</h1>
+                <p>
+                    Game Mavericks is dedicated to delivering the most immersive and dynamic interactive entertainment experiences. We push the boundaries of creative storytelling and groundbreaking technology to bring living, breathing worlds directly to our community. View our comprehensive site directory below.
+                </p>
+            </div>
+        </section>
+
+        <!-- Dynamic Site Map Section -->
+        <!-- <section class="sitemap-section"> -->
+            <!-- <div class="dynamic-shape" style="top: 10%; left: 0; width: 400px; height: 400px;"></div> -->
+            <!-- <div class="dynamic-shape" style="bottom: 10%; right: 0; width: 600px; height: 600px; background: rgba(255, 255, 255, 0.03);"></div> -->
+            
+            <div class="sitemap-header">
+                <h2>Site Directory</h2>
+                <p>Navigate through our digital ecosystem. Discover everything from our flagship titles to comprehensive support tools.</p>
+            </div>
+            
+            <div class="sitemap-grid">
+                
+                <!-- Main Hub -->
+                <div class="sitemap-card">
+                    <div class="sitemap-card-bg" style="background-image: url('images/img1.jpg');"></div>
+                    <div class="sitemap-icon-wrap"><i class="fas fa-home"></i></div>
+                    <div class="sitemap-title">Main Hub</div>
+                    <ul class="sitemap-links">
+                        <li><a href="index.html"><i></i><span>Home</span></a></li>
+                        <li><a href="aboutus.html"><i></i><span>About Us</span></a></li>
+                        <li style="grid-column: span 2;"><a href="newswire.html"><i></i><span>Newswire (Latest Intel)</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Experiences -->
+                <div class="sitemap-card">
+                    <div class="sitemap-card-bg" style="background-image: url('images/img2.jpg');"></div>
+                    <div class="sitemap-icon-wrap"><i class="fas fa-gamepad"></i></div>
+                    <div class="sitemap-title">Experiences</div>
+                    <ul class="sitemap-links">
+                        <li><a href="games.html"><i></i><span>All Games</span></a></li>
+                        <li><a href="videos.html"><i></i><span>Videos</span></a></li>
+                        <li style="grid-column: span 2;"><a href="#"><i></i><span>Trailers & Media</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Ecosystem -->
+                <div class="sitemap-card">
+                    <div class="sitemap-card-bg" style="background-image: url('images/img3.jpg');"></div>
+                    <div class="sitemap-icon-wrap"><i class="fas fa-store"></i></div>
+                    <div class="sitemap-title">Ecosystem</div>
+                    <ul class="sitemap-links">
+                        <li><a href="store.html"><i></i><span>Official Store</span></a></li>
+                        <li><a href="downloads.html"><i></i><span>Downloads</span></a></li>
+                        <li style="grid-column: span 2;"><a href="#"><i></i><span>Merchandise & Gear</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Assistance -->
+                <div class="sitemap-card">
+                    <div class="sitemap-card-bg" style="background-image: url('images/img4.jpg');"></div>
+                    <div class="sitemap-icon-wrap"><i class="fas fa-headset"></i></div>
+                    <div class="sitemap-title">Assistance</div>
+                    <ul class="sitemap-links">
+                        <li><a href="support.html"><i></i><span>Support</span></a></li>
+                        <li><a href="signin.html"><i></i><span>Sign-In</span></a></li>
+                        <li style="grid-column: span 2;"><a href="#"><i></i><span>Community Resources</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Featured Large Card -->
+                <div class="sitemap-card sitemap-featured" style="border-radius: 40px;">
+                    <div class="sitemap-card-bg" style="background-image: url('images/img1.jpg'); border-radius: 40px 0 0 40px;"></div>
+                    <div class="sitemap-featured-content">
+                        <span style="color: #ffb1c1; font-weight:700; text-transform:uppercase; letter-spacing:2px; font-size:14px; margin-bottom:16px; display:block;">Discover More</span>
+                        <h3 style="font-family:'Chalet', sans-serif; font-size:48px; margin-bottom:24px; line-height:1.1;">Join The Game Mavericks Community</h3>
+                        <p style="font-size: 18px; color: #aaa; margin-bottom: 40px; line-height: 1.6;">Stay connected with millions of players worldwide. Share your experiences, find crew members, and unlock exclusive content directly via the Social Club platform.</p>
+                        <a href="signin.html" class="btn-solid-pink" style="display:inline-flex; align-items:center; justify-content:center; padding: 18px 40px; border-radius: 40px; font-weight:700; color:#000; text-decoration:none; background:#ffb1c1; transition:0.3s; font-size: 16px;">
+                            Join Now <i class="fas fa-arrow-right" style="margin-left:8px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 0; background: #000; padding: 80px 5% 40px 5%;">
+        <div class="footer-top" style="border-bottom: none; display: flex; justify-content: space-between; align-items: center; padding-bottom: 60px; margin-bottom: 40px;">
+            <div class="footer-links" style="display: flex; gap: 24px;">
+                <a href="index.html" style="color: white; font-weight: 700; font-size: 16px;">Contact</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 16px;">Careers</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 16px;">Community Resources</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 16px;">Subscribe</a>
+            </div>
+            <div class="footer-lang" style="display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.2); padding: 12px 20px; border-radius: 8px; cursor: pointer;">
+                <i class="fas fa-globe" style="color: white; margin-right: 12px; font-size: 18px;"></i>
+                <select style="background: transparent; color: white; border: none; font-size: 16px; font-weight: 700; cursor: pointer; outline: none; appearance: none; padding-right: 16px;">
+                    <option value="en" selected>English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                </select>
+                <i class="fas fa-chevron-down" style="color: white; font-size: 12px; margin-left: -5px;"></i>
+            </div>
+        </div>
+        <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 20px;">
+            <div class="corporate" style="display: flex; gap: 20px; color: white;">
+                <a href="#" style="color: white; font-weight: 700; font-size: 13px;">Corporate</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 13px;">Privacy</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 13px;">Cookie Settings</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 13px;">Cookie Policy</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 13px;">Legal</a>
+                <a href="#" style="color: white; font-weight: 700; font-size: 13px;">Do Not Sell or Share My Personal Information</a>
+            </div>
+            <div class="socials" style="display: flex; gap: 20px;">
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-youtube"></i></a>
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-tiktok"></i></a>
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-discord"></i></a>
+                <a href="#" style="color: white; font-size: 16px;"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+        <div class="footer-locations" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: #888; text-transform: uppercase; font-weight: 600;">
+            Rockstar Games - New York, London, Paris, Bogotá, Massachusetts, Edinburgh, San Diego, Toronto
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

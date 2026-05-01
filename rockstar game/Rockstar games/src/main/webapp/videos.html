@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Rockstar Games</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/meta-icons/rockstar/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="inner-page bg-black">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <!-- Hamburger for mobile -->
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg.jpeg" alt="Rockstar Games">
+                </a>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="games.html">Games <i class="fas fa-chevron-down nav-arrow"></i></a></li>
+                        <li><a href="newswire.html">Newswire</a></li>
+                        <li><a href="videos.html" class="active">Videos</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="store.html">Store <i class="fas fa-external-link-alt nav-ext"></i></a></li>
+                        <li><a href="support.html">Support <i class="fas fa-external-link-alt nav-ext"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <button class="get-launcher-btn">Get Launcher</button>
+                <div class="nav-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <a href="login.jsp" class="login-btn-nav" style="color: black; background: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; text-decoration: none; margin-left: 15px; font-size: 14px; transition: 0.3s;">Log In</a>
+                    <a href="signin.jsp" class="user-btn" style="margin-left: 15px;"><i class="far fa-user-circle"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Search Dropdown Panel -->
+        <div class="search-dropdown">
+            <div class="search-dropdown-content">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search Rockstar Games...">
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active">Games</button>
+                    <button class="filter-btn">Posts</button>
+                    <button class="filter-btn">Videos</button>
+                    <button class="filter-btn">Community <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <button class="close-search-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content offset -->
+    <div style="margin-top: 80px;"></div>
+
+    <!-- Secondary Nav for Videos -->
+    <div class="videos-secondary-nav" style="display: flex; justify-content: flex-start; align-items: center; padding: 20px 40px; background-color: #0b0b0b; border-bottom: 1px solid #1a1a1a;">
+        <h1 style="font-size: 20px; font-weight: 700; text-transform: uppercase;">Videos</h1>
+    </div>
+
+    <!-- Video Hero Section (Full bleed) -->
+    <section class="video-hero-feature" style="position: relative; width: 100vw; height: 65vh; margin-left: calc(-50vw + 50%); background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <video id="hero-main-video" loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+            <source src="videos/video1.mp4" type="video/mp4">
+        </video>
+        <div class="video-hero-gradient" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);"></div>
+        <div class="video-hero-gradient-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);"></div>
+        <div class="video-hero-content" style="position: relative; z-index: 2; padding: 60px 40px; width: 100%; max-width: 1600px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div class="hero-play" style="width: 72px; height: 72px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: transform 0.2s, background 0.2s; background: rgba(0,0,0,0.4);">
+                <i class="fas fa-play" style="font-size: 24px; color: white; margin-left: 4px;"></i>
+            </div>
+            <span class="tag" style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px;">Grand Theft Auto VI</span>
+            <h2 style="font-size: 64px; font-weight: 700; font-family: var(--font-heading); line-height: 1.1; margin-bottom: 0;">Trailer 2</h2>
+        </div>
+    </section>
+
+    <!-- Videos Page Layout: Filters + Grid -->
+    <section class="videos-page-content" style="padding: 40px; max-width: 1600px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
+        
+        <div class="videos-filter-bar" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a1a1a; padding-bottom: 20px;">
+            <div class="filter-dropdowns" style="display: flex; gap: 16px;">
+                <select style="background: transparent; border: 1px solid #333; color: white; padding: 12px 24px; font-size: 16px; font-weight: 600; border-radius: 4px; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;">
+                    <option value="all">All Games</option>
+                    <option value="gta6">Grand Theft Auto VI</option>
+                    <option value="gtaonline">Grand Theft Auto Online</option>
+                    <option value="gtav">Grand Theft Auto V</option>
+                </select>
+                <select style="background: transparent; border: 1px solid #333; color: white; padding: 12px 24px; font-size: 16px; font-weight: 600; border-radius: 4px; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;">
+                    <option value="popular">Most Popular</option>
+                    <option value="recent">Most Recent</option>
+                </select>
+            </div>
+            <div class="videos-search" style="position: relative;">
+                <i class="fas fa-search" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #666; font-size: 18px;"></i>
+                <input type="text" placeholder="Search Videos" style="background: transparent; border: 1px solid #333; color: white; padding: 12px 20px 12px 45px; border-radius: 30px; font-size: 16px; font-weight: 600; outline: none; width: 300px; transition: border-color 0.2s;">
+            </div>
+        </div>
+
+        <div class="videos-main-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px;">
+            
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="images/gta-plus-buffalo.jpg" alt="Video Thumb" onerror="this.src='https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/d2f62ad5c4415ebefeb4cb7279aa7aed377ee16d.jpg'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">GTA Online</span>
+                    <h3 class="v-title">Bravado Buffalo STX Showcase</h3>
+                </div>
+            </a>
+            
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="images/neighborhood-watch.jpg" alt="Video Thumb" onerror="this.src='https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/764dca3dfb0be1dc970fb907f918cb0e5f22fc86.jpg'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">GTA Online</span>
+                    <h3 class="v-title">Neighborhood Watch Event Trailer</h3>
+                </div>
+            </a>
+            
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="images/ld-organics.jpg" alt="Video Thumb" onerror="this.src='https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/9103cdef90f23fcf9888ff5aaee9d34e6e661005.jpg'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">GTA Online</span>
+                    <h3 class="v-title">The 420 Event Teaser</h3>
+                </div>
+            </a>
+            
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="images/rdo-trader.jpg" alt="Video Thumb" onerror="this.src='https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/fe95bd97ae3d3bb7e7ec9e289c894cb30bc0bb31.jpg'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">Red Dead Online</span>
+                    <h3 class="v-title">Trader Bonuses Overview</h3>
+                </div>
+            </a>
+
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="images/circoloco.jpg" alt="Video Thumb" onerror="this.src='https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/ebfc867a5b3a32279b9a6b4122d4f2ea0fbad349.jpg'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">CircoLoco Records</span>
+                    <h3 class="v-title">Free Your Mind Album Trailer</h3>
+                </div>
+            </a>
+
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="images/circoloco-roses.jpg" alt="Video Thumb" onerror="this.src='https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/5cebb1048b6f38efcd07e8accc25103fa169f9e5.jpg'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">CircoLoco Records</span>
+                    <h3 class="v-title">Prospa & Cloonee Collaboration Feature</h3>
+                </div>
+            </a>
+            
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/d2f62ad5c4415ebefeb4cb7279aa7aed377ee16d.jpg" alt="Video Thumb" onerror="this.src='https://via.placeholder.com/640x360'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">GTA Online</span>
+                    <h3 class="v-title">The Cluckin' Bell Farm Raid</h3>
+                </div>
+            </a>
+
+            <a href="#" class="v-card">
+                <div class="v-card-img-wrap">
+                    <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/site/modules/764dca3dfb0be1dc970fb907f918cb0e5f22fc86.jpg" alt="Video Thumb" onerror="this.src='https://via.placeholder.com/640x360'">
+                    <div class="v-play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="v-card-info">
+                    <span class="v-tag">Grand Theft Auto V</span>
+                    <h3 class="v-title">PS5 & Xbox Series X|S Launch Trailer</h3>
+                </div>
+            </a>
+        </div>
+        
+        <div style="display: flex; justify-content: center; margin-top: 40px;">
+            <button style="background: transparent; border: 1px solid #333; color: white; padding: 12px 32px; font-weight: 700; border-radius: 30px; cursor: pointer; transition: all 0.2s;">Load More</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Community Resources</a>
+                <a href="#">Subscribe</a>
+            </div>
+            <div class="footer-lang">
+                <i class="fas fa-globe"></i>
+                <select>
+                    <option value="en" selected>English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="corporate">
+                <a href="#">Corporate</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookie Settings</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Legal</a>
+                <a href="#">Do Not Sell or Share My Personal Information</a>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+        <div class="footer-locations">
+            Rockstar Games - New York, London, Paris, Bogotá, Massachusetts, Edinburgh, San Diego, Toronto
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

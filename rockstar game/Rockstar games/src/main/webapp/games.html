@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games - Rockstar Games</title>
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/meta-icons/rockstar/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body
+    style="background-image: url('https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadredemption2.jpg'); background-size: cover; background-attachment: fixed; background-blend-mode: overlay; background-color: rgba(0,0,0,0.85);">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg.jpeg"
+                        alt="Rockstar Games">
+                </a>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="games.html" class="active-link">Games <i
+                                    class="fas fa-chevron-down nav-arrow"></i></a></li>
+                        <li><a href="newswire.html">Newswire</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="store.html">Store <i class="fas fa-external-link-alt nav-ext"></i></a></li>
+                        <li><a href="support.html">Support <i class="fas fa-external-link-alt nav-ext"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <button class="get-launcher-btn">Get Launcher</button>
+                <div class="nav-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <a href="login.jsp" class="login-btn-nav" style="color: black; background: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; text-decoration: none; margin-left: 15px; font-size: 14px; transition: 0.3s;">Log In</a>
+                    <a href="signin.jsp" class="user-btn" style="margin-left: 15px;"><i class="far fa-user-circle"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Search Dropdown Panel -->
+        <div class="search-dropdown">
+            <div class="search-dropdown-content">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search Rockstar Games...">
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active">Games</button>
+                    <button class="filter-btn">Posts</button>
+                    <button class="filter-btn">Videos</button>
+                    <button class="filter-btn">Community <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <button class="close-search-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Games Main Content -->
+    <section class="games-page-section">
+        <div class="games-page-header" style="max-width: 1920px; margin: 0 auto; padding: 0 40px;">
+            <h2>Games</h2>
+            <div class="games-filters" style="display: flex; gap: 24px;">
+                <select>
+                    <option>Platform</option>
+                    <option>PS5</option>
+                    <option>PS4</option>
+                    <option>Xbox Series X|S</option>
+                    <option>Xbox One</option>
+                    <option>PC</option>
+                </select>
+                <select>
+                    <option>Relevance</option>
+                    <option>Release Date</option>
+                    <option>A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid all-games-grid"
+            style="max-width: 1920px; margin: 0 auto; padding: 0 40px; margin-bottom: 60px;">
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/V.jpg"
+                    alt="GTA V"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadredemption2.jpg"
+                    alt="Red Dead Redemption 2"></a>
+            <a href="#" class="game-card"><img src="https://wallpapercave.com/wp/wp14078639.jpg" alt="GTA Online"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadonline.jpg"
+                    alt="Red Dead Online"></a>
+            <a href="#" class="game-card"><img
+                    src="https://i.pinimg.com/1200x/58/b6/e9/58b6e9bc7801b5a60410a7f75ec6b890.jpg"
+                    alt="GTA Trilogy"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/lanoire.jpg"
+                    alt="L.A. Noire"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadredemption.jpg"
+                    alt="Red Dead Redemption"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/maxpayne3.jpg"
+                    alt="Max Payne 3"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/bully.jpg"
+                    alt="Bully"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/IV.jpg"
+                    alt="GTA IV"></a>
+            <a href="#" class="game-card"><img
+                    src="https://i.pinimg.com/736x/8b/e2/ee/8be2eece9b6937d4c280e41cb5c3bcc3.jpg"
+                    alt="Midnight Club: Los Angeles"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/sanandreas.jpg"
+                    alt="GTA San Andreas"></a>
+            <a href="#" class="game-card"><img
+                    src="https://i.pinimg.com/1200x/c5/55/11/c55511bd5d16d0a1023a1708311ce6b9.jpg"
+                    alt="Bully Scholarship Edition"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/vicecity.jpg"
+                    alt="GTA Vice City"></a>
+            <a href="#" class="game-card"><img
+                    src="https://i.pinimg.com/736x/83/10/7e/83107eb75f910bab989794e17da012ec.jpg" alt="GTA III"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/manhunt.jpg"
+                    alt="Manhunt"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/maxpayne2.jpg"
+                    alt="Max Payne 2"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/maxpayne.jpg"
+                    alt="Max Payne"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/tabletennis.jpg"
+                    alt="Rockstar Games Presents Table Tennis"></a>
+            <a href="#" class="game-card"><img
+                    src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/thewarriors.jpg"
+                    alt="The Warriors"></a>
+        </div>
+
+        <div style="text-align: center; margin-top:40px; margin-bottom: 60px;">
+            <button class="btn-primary"
+                style="width:100%; max-width:400px; padding: 16px; font-size: 16px; font-weight: 700; background: white; border: 1px solid white; color: black; border-radius: 4px; cursor: pointer; transition: all 0.2s;">Load
+                More</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Community Guidelines</a>
+                <a href="#">Subscribe</a>
+            </div>
+            <div class="footer-lang">
+                <i class="fas fa-globe"></i>
+                <select>
+                    <option value="en" selected>English</option>
+                </select>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="corporate">
+                <a href="#">Corporate</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookie Settings</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Legal</a>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-twitch"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="footer-locations">
+            Rockstar Games - New York, London, Paris, Bogotá, Massachusetts, Edinburgh, San Diego, Toronto
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

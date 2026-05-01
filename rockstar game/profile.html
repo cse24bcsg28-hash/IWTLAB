@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Rockstar Games</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 40px;
+            background: #111;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .profile-user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #ccc;
+        }
+
+        .profile-details h1 {
+            font-family: 'Chalet', sans-serif;
+            font-size: 32px;
+            margin: 0 0 8px 0;
+            color: #fff;
+        }
+
+        .profile-details p {
+            margin: 0;
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .signout-btn {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signout-btn:hover {
+            background: #d62828;
+        }
+
+        .section-title {
+            font-family: 'Chalet', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .order-history {
+            background: #000;
+            border: 1px solid #222;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .order-history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .order-history-table th,
+        .order-history-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+
+        .order-history-table th {
+            background: #151515;
+            color: #888;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .order-history-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .empty-state {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            background: var(--btn-primary, #fcaf17);
+            color: black;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #e59c15;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                     <img src="logo.jpg.jpeg" alt="Rockstar Games">
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="index.html" style="color:white; font-weight:600; text-decoration:none;"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-user-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-details">
+                    <h1>My Profile</h1>
+                    <p id="user-email">Loading...</p>
+                </div>
+            </div>
+            <button class="signout-btn" onclick="handleSignOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+
+        <h2 class="section-title">Order History</h2>
+        
+        <div class="order-history">
+            <table class="order-history-table" id="orders-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Platform</th>
+                        <th>Date</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-body">
+                    <!-- Orders will be injected here -->
+                </tbody>
+            </table>
+
+            <div class="empty-state" id="empty-orders">
+                <i class="fas fa-shopping-basket"></i>
+                <p>You haven't bought any games yet.</p>
+                <a href="downloads.html" class="btn-primary">Browse Store</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check auth
+            if(!window.rockstarAuth) return;
+            
+            const currentUser = window.rockstarAuth.getCurrentUser();
+            
+            if(!currentUser) {
+                // Redirect if not logged in
+                window.location.href = 'signin.html';
+                return;
+            }
+
+            // Display User Info
+            document.getElementById('user-email').innerText = currentUser;
+
+            // Load Orders
+            const orders = window.rockstarAuth.getOrders();
+            const ordersTable = document.getElementById('orders-table');
+            const emptyOrders = document.getElementById('empty-orders');
+            const ordersBody = document.getElementById('orders-body');
+
+            if(orders && orders.length > 0) {
+                ordersTable.style.display = 'table';
+                emptyOrders.style.display = 'none';
+
+                orders.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td style="font-weight: bold;">${order.item}</td>
+                        <td>${order.platform}</td>
+                        <td>${order.date}</td>
+                        <td style="color: #fcaf17;">${order.price}</td>
+                    `;
+                    ordersBody.appendChild(row);
+                });
+            } else {
+                ordersTable.style.display = 'none';
+                emptyOrders.style.display = 'block';
+            }
+        });
+
+        function handleSignOut() {
+            if(window.rockstarAuth) {
+                window.rockstarAuth.logout();
+            }
+        }
+    </script>
+</body>
+</html>

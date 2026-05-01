@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockstar Games Store - Ultra Premium</title>
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/meta-icons/rockstar/favicon-32x32.png">
+
+    <!-- Link existing global styles + NEW premium 2025 styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="store-premium.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="store-theme">
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left" style="gap:40px;">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <a href="index.html" class="logo" style="margin-right:0;">
+                    <img src="logo.jpg.jpeg"
+                        alt="Rockstar Games" style="filter: invert(1);">
+                </a>
+                <h1 style="font-family: var(--font-heading); font-size: 24px; letter-spacing:1px; margin-top:5px;">STORE
+                </h1>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Gear</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <div class="nav-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <a href="login.html" class="login-btn-nav" style="color: black; background: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; text-decoration: none; margin-left: 15px; font-size: 14px; transition: 0.3s;">Log In</a>
+                    <a href="signin.html" class="user-btn" style="margin-left: 15px;"><i class="far fa-user-circle"></i></a>
+                    <button class="user-btn"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Parallax Glassmorphism Hero Section -->
+    <section class="store-hero">
+        <div class="store-hero-bg"></div>
+        <div class="store-hero-content">
+            <h1>The Rockstar Store</h1>
+            <p style="margin: 0 auto 35px auto;">Experience the ultimate collection of games, apparel, and premium gear.
+            </p>
+            <button class="btn-premium" onclick="window.location.href='games.html'">Shop The Collection</button>
+        </div>
+    </section>
+
+    <!-- Interactive 3D Tilt Grid Elements -->
+    <section>
+        <div class="store-grid">
+
+            <div class="premium-card">
+                <div class="premium-card-inner">
+                    <div class="card-image-container">
+                        <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/V.jpg"
+                            alt="GTA V">
+                    </div>
+                    <div class="card-title">Grand Theft Auto V:<br>Premium Edition</div>
+                    <div class="card-footer">
+                        <div class="card-price">$29.99</div>
+                        <div class="buy-icon"><i class="fas fa-shopping-bag"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="premium-card">
+                <div class="premium-card-inner">
+                    <div class="card-image-container">
+                        <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadredemption2.jpg"
+                            alt="RDR 2">
+                    </div>
+                    <div class="card-title">Red Dead Redemption 2</div>
+                    <div class="card-footer">
+                        <div class="card-price">$59.99</div>
+                        <div class="buy-icon"><i class="fas fa-shopping-bag"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="premium-card">
+                <div class="premium-card-inner">
+                    <div class="card-image-container" style="background:#0a0a0a; padding:40px;">
+                        <img src="logo.jpg.jpeg"
+                            style="width:120px; object-fit:contain;" alt="GTA Tee">
+                    </div>
+                    <div class="card-title">Rockstar Logo Tee<br>Classic Black</div>
+                    <div class="card-footer">
+                        <div class="card-price">$20.00</div>
+                        <div class="buy-icon"><i class="fas fa-shopping-bag"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="premium-card">
+                <div class="premium-card-inner">
+                    <div class="card-image-container"
+                        style="background: radial-gradient(circle, #2a2a2a 0%, #111 100%);">
+                        <i class="fas fa-coins"
+                            style="font-size:100px; color:#fcaf17; text-shadow: 0 10px 20px rgba(0,0,0,0.5);"></i>
+                    </div>
+                    <div class="card-title">Megalodon Shark<br>Cash Card</div>
+                    <div class="card-footer">
+                        <div class="card-price">$99.99</div>
+                        <div class="buy-icon"><i class="fas fa-shopping-bag"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Appended Dark Footer so it isolates -->
+    <footer class="footer"
+        style="background:var(--bg-color); border-top:1px solid var(--border-color); position:relative; z-index:20;">
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+        <div class="footer-locations">
+            Rockstar Games - Store Operations
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="store-premium.js"></script>
+</body>
+
+</html>

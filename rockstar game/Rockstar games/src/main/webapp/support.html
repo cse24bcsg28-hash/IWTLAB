@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockstar Games Customer Support</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/meta-icons/rockstar/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chalet:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="support-theme">
+    
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left" style="gap:40px;">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <a href="index.html" class="logo" style="margin-right:0;">
+                     <img src="logo.jpg.jpeg" alt="Rockstar Games" style="filter: invert(1);">
+                </a>
+                <h1 style="font-family: var(--font-heading); font-size: 24px; letter-spacing:1px; margin-top:5px;">SUPPORT</h1>
+            </div>
+            <div class="nav-right">
+                <a href="signin.html" class="btn-solid-primary" style="padding: 10px 24px; text-decoration:none;">Sign In</a>
+            </div>
+        </div>
+        <!-- Search Dropdown Panel -->
+        <div class="search-dropdown">
+            <div class="search-dropdown-content">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search Rockstar Games...">
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active">Games</button>
+                    <button class="filter-btn">Posts</button>
+                    <button class="filter-btn">Videos</button>
+                    <button class="filter-btn">Community <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <button class="close-search-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Hero Search -->
+    <div class="support-hero">
+        <div class="support-search">
+            <h1>What do you need help with?</h1>
+            <input type="text" placeholder="Tell us what you're having trouble with">
+            <i class="fas fa-search" style="position: absolute; right: 24px; top: 110px; font-size: 24px; color: #999; z-index: 3;"></i>
+        </div>
+    </div>
+
+    <!-- Support Section Grid -->
+    <section class="mt-nav" style="padding-top:80px; max-width: 1200px;">
+         <div class="grid store-grid">
+            <div class="store-product" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align:center;">
+                <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/V.jpg" alt="GTA V" style="width:80%; margin:0 auto 20px; display:block;">
+                <h3 style="font-size: 16px; font-weight: 700;">Grand Theft Auto V</h3>
+            </div>
+            <div class="store-product" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align:center;">
+                <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadredemption2.jpg" alt="RDR2" style="width:80%; margin:0 auto 20px; display:block;">
+                <h3 style="font-size: 16px; font-weight: 700;">Red Dead Redemption 2</h3>
+            </div>
+            <div class="store-product" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align:center;">
+                <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/gtaonline.jpg" alt="GTA Online" style="width:80%; margin:0 auto 20px; display:block;">
+                <h3 style="font-size: 16px; font-weight: 700;">GTA Online</h3>
+            </div>
+             <div class="store-product" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align:center;">
+                <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/640/reddeadonline.jpg" alt="RDO" style="width:80%; margin:0 auto 20px; display:block;">
+                <h3 style="font-size: 16px; font-weight: 700;">Red Dead Online</h3>
+            </div>
+             <div class="store-product" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <div style="background:#000; width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <img src="https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/header/logo.svg" alt="Social Club" style="margin:0; width:40px;">
+                </div>
+                <h3 style="font-size: 16px; font-weight: 700;">Social Club</h3>
+            </div>
+            <div class="store-product" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <div style="background:#000; width:80px; height:80px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <i class="fas fa-desktop" style="font-size:32px; color:#fcaf17;"></i>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 700;">Rockstar Games Launcher</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appended Dark Footer so it isolates -->
+    <footer class="footer" style="background:#f4f4f4; border-top:1px solid var(--border-color);">
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="#">Support Home</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-locations" style="color:#000;">
+            Rockstar Support
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

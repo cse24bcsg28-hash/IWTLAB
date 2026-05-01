@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dynamic Hero</title>
+    <style>
+        /* ==================================================================
+           CUSTOMIZATION VARIABLES 
+           ================================================================== */
+        :root {
+            /* Text Configurations */
+            --brand-name: '[BRAND_NAME]';
+            --headline-prefix: 'Build the best tooling for';
+            --cta-text-primary: 'Get Started';
+            --cta-text-secondary: 'View Documentation';
+            
+            /* Theme Colors (Light by default) */
+            --bg-color: #ffffff;
+            --text-heading: #111827;
+            --text-body: #4b5563;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --ghost-border: #e5e7eb;
+            --shape-color-1: #bfdbfe;
+            --shape-color-2: #dbeafe;
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0c0a09;
+                --text-heading: #f9fafb;
+                --text-body: #9ca3af;
+                --accent-color: #3b82f6;
+                --accent-hover: #60a5fa;
+                --ghost-border: #334155;
+                --shape-color-1: #1e3a8a;
+                --shape-color-2: #172554;
+            }
+        }
+
+        /* ==================================================================
+           BASE STYLES 
+           ================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-body);
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ==================================================================
+           LAYOUT 
+           ================================================================== */
+        .hero-section {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 6rem 2rem;
+            }
+        }
+
+        /* ==================================================================
+           CONTENT (LEFT) 
+           ================================================================== */
+        .content-wrap {
+            position: relative;
+            z-index: 10;
+        }
+
+        .headline {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: var(--text-heading);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .subheadline {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+        }
+
+        @media (max-width: 1024px) {
+            .subheadline { margin: 0 auto 2.5rem auto; }
+        }
+
+        /* Rotating Text */
+        .typed-wrapper {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-color);
+            position: relative;
+            min-height: 1.2em;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 0.9em;
+            background-color: var(--accent-color);
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+        }
+
+        /* Buttons */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+        }
+
+        @media (max-width: 1024px) {
+            .actions { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .actions { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+
+        .btn {
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--text-heading);
+            border: 2px solid var(--ghost-border);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-heading);
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+        }
+
+        @media (max-width: 1024px) {
+            .social-proof { justify-content: center; margin-top: 4rem; }
+        }
+
+        .avatars {
+            display: flex;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+            margin-left: -12px;
+            background-color: var(--ghost-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--text-body);
+            transition: transform 0.2s ease;
+        }
+
+        .avatar:hover {
+            transform: translateY(-4px);
+            z-index: 5;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        .trust-text {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* ==================================================================
+           VISUAL ACCENT (RIGHT)
+           ================================================================== */
+        .visual-accent {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            perspective: 1000px;
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards 0.5s;
+        }
+
+        @media (max-width: 1024px) {
+            .visual-accent { height: 400px; margin-top: 2rem; }
+        }
+
+        .shape {
+            position: absolute;
+            transition: transform 0.2s ease-out;
+        }
+
+        .shape-1 {
+            width: 350px;
+            height: 450px;
+            background-color: var(--shape-color-1);
+            border-radius: 24px;
+            right: 5%;
+            top: 50px;
+            z-index: 2;
+            transform: rotate(-6deg);
+            box-shadow: -10px 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .shape-2 {
+            width: 280px;
+            height: 350px;
+            background-color: var(--shape-color-2);
+            border-radius: 24px;
+            right: 25%;
+            top: 150px;
+            z-index: 1;
+            transform: rotate(8deg);
+            box-shadow: -10px 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .shape-dot-grid {
+            width: 150px;
+            height: 150px;
+            top: 10px;
+            right: 35%;
+            background-image: radial-gradient(var(--text-body) 2px, transparent 2px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        /* ==================================================================
+           ANIMATIONS 
+           ================================================================== */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section" id="hero">
+        <!-- Text Content -->
+        <div class="content-wrap">
+            <h1 class="headline">
+                <span id="headline-prefix">Build the best tooling for</span><br>
+                <div class="typed-wrapper">
+                    <span id="typed-text"></span><span class="cursor"></span>
+                </div>
+            </h1>
+            
+            <p class="subheadline">
+                Empower your workflow with clean, scalable, and modern logic. Designed for absolute performance, built perfectly for the future.
+            </p>
+
+            <div class="actions">
+                <a href="#" class="btn btn-primary" id="btn-primary-text">Get Started</a>
+                <a href="#" class="btn btn-ghost" id="btn-secondary-text">View Documentation</a>
+            </div>
+
+            <div class="social-proof">
+                <div class="avatars">
+                    <div class="avatar" style="background: #fca5a5; z-index: 4;">A</div>
+                    <div class="avatar" style="background: #fcd34d; z-index: 3;">B</div>
+                    <div class="avatar" style="background: #86efac; z-index: 2;">C</div>
+                    <div class="avatar" style="background: #93c5fd; z-index: 1;">+</div>
+                </div>
+                <span class="trust-text">Trusted by 10,000+ top teams</span>
+            </div>
+        </div>
+
+        <!-- Right Side Visual Accent -->
+        <div class="visual-accent" id="parallax-scene">
+            <div class="shape shape-1" data-speed="-2"></div>
+            <div class="shape shape-2" data-speed="3"></div>
+            <div class="shape shape-dot-grid" data-speed="1"></div>
+        </div>
+    </section>
+
+    <script>
+        /* ==================================================================
+           [KEYWORDS] CONFIGURATION DO NOT REMOVE
+           ================================================================== */
+        const KEYWORDS = ["startups", "enterprises", "agencies", "creators"];
+        
+        /* Initialize CSS variables injected into HTML dynamically (Optional) */
+        document.getElementById('btn-primary-text').innerText = getComputedStyle(document.documentElement).getPropertyValue('--cta-text-primary').replace(/['"]/g, '').trim();
+        document.getElementById('btn-secondary-text').innerText = getComputedStyle(document.documentElement).getPropertyValue('--cta-text-secondary').replace(/['"]/g, '').trim();
+        document.getElementById('headline-prefix').innerText = getComputedStyle(document.documentElement).getPropertyValue('--headline-prefix').replace(/['"]/g, '').trim();
+
+        /* ==================================================================
+           TYPING ANIMATION
+           ================================================================== */
+        const typedTextSpan = document.getElementById("typed-text");
+        const typingDelay = 100;
+        const erasingDelay = 60;
+        const newTextDelay = 2200; // Delay between current and next text
+        let keywordIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < KEYWORDS[keywordIndex].length) {
+                typedTextSpan.textContent += KEYWORDS[keywordIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = KEYWORDS[keywordIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                keywordIndex++;
+                if (keywordIndex >= KEYWORDS.length) keywordIndex = 0;
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (KEYWORDS.length) setTimeout(type, newTextDelay + 250);
+        });
+
+        /* ==================================================================
+           PARALLAX MOUSE SHIFT EFFECT
+           ================================================================== */
+        document.addEventListener("mousemove", (e) => {
+            const shapes = document.querySelectorAll(".shape");
+            
+            // Calculate mouse position relative to center of screen
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            shapes.forEach(shape => {
+                const speed = shape.getAttribute("data-speed");
+                
+                // Maintain initial css rotation mapping
+                let initialRotation = 0;
+                if (shape.classList.contains('shape-1')) initialRotation = -6;
+                if (shape.classList.contains('shape-2')) initialRotation = 8;
+
+                shape.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px) rotate(${initialRotation}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
